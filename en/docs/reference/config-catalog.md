@@ -897,7 +897,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can define the custom claim retiriver implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
+                                        <p>You can define the custom claim retriever implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3009,6 +3009,7 @@ enable = true
 token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
 default_request_timeout = 30
+custom_error_response_sequence = "openai_error_response_formatter"
 
 [apim.ai.failover_configurations]
 failover_endpoints_limit = 10
@@ -3101,6 +3102,27 @@ default_request_timeout = 30</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The default timeout (in seconds) for AI API requests</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>custom_error_response_sequence</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>openai_error_response_formatter</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the Synapse sequence used to format gateway error responses for AI APIs. Applies only to AI APIs. If not set, AI APIs use the default error response format.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4240,7 +4262,7 @@ mode = "HYBRID"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
+                                        <p>Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4637,7 +4659,7 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Binary - Uses the binary transport. Recommended.Thrift - Uses thrift transport</p>
+                                        <p>Binary - Uses the binary transport. Recommended. Thrift - Uses thrift transport</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7354,7 +7376,7 @@ environment = "live"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>the signature of the attached PayPal account.</p>
+                                        <p>The signature of the attached PayPal account.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8928,7 +8950,7 @@ re_indexing = 1</code></pre>
 port = "9763"
 redirectPort = "9443"
 bindOnInit = "false"
-maxHttpHeaderSize = "8192"
+maxHttpHeaderSize = "32768"
 acceptorThreadCount = "2"
 maxThreads = "250"
 minSpareThreads = "50"
@@ -9007,14 +9029,14 @@ URIEncoding = "UTF-8"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8192</code></span>
+                                            <span class="param-default-value">Default: <code>32768</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9338,7 +9360,7 @@ URIEncoding = "UTF-8"</code></pre>
 port = "9763"
 redirectPort = "9443"
 bindOnInit = "false"
-maxHttpHeaderSize = "8192"
+maxHttpHeaderSize = "32768"
 acceptorThreadCount = "2"
 maxThreads = "250"
 minSpareThreads = "50"
@@ -9421,14 +9443,14 @@ SSLEnabled = "true"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8192</code></span>
+                                            <span class="param-default-value">Default: <code>32768</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -11978,7 +12000,7 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
 
 
 
-## Message Builders (non-blocking mode)
+## WebSocket Proxy Profile
 
 
 <div class="mb-config-catalog">
@@ -11988,6 +12010,358 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
             
             <input name="79" type="checkbox" id="_tab_79">
                 <label class="tab-selector" for="_tab_79"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml"># Example deployment.toml entry
+[[transport.ws.proxy_profile]]
+target_hosts = ["example\\.backend\\.corp"]
+proxy_host = "proxy.corp.internal"
+proxy_port = 3128
+proxy_username = "<proxy-username>"
+proxy_password = "<proxy-password>"
+bypass_hosts = ["localhost", "127\\.0\\.0\\.1"]
+
+[[transport.ws.proxy_profile]]
+target_hosts = ["*"]
+proxy_host = "proxy.corp.internal"
+proxy_port = 3128
+bypass_hosts = ["localhost"]
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[[transport.ws.proxy_profile]]</code>
+                            
+                            <p>
+                                Configures an HTTP CONNECT proxy profile for outbound WebSocket (ws://) connections from the gateway to the backend. Multiple profiles can be defined; the gateway evaluates them in order and uses the first matching profile. Specific profiles (no wildcard in target_hosts) are evaluated before the catch-all profile (target_hosts = ["*"]).
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>target_hosts</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[&quot;example&#92;&#92;.com&quot;], [&quot;*&quot;]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A list of Java regular expression patterns matched against the backend hostname. Use [&quot;*&quot;] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: &quot;example&#92;&#92;.com&quot;.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_host</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Hostname or IP address of the HTTP CONNECT proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Port number of the HTTP CONNECT proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>bypass_hosts</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[&quot;localhost&quot;, &quot;127&#92;&#92;.0&#92;&#92;.0&#92;&#92;.1&quot;]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Password for proxy authentication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Secure WebSocket Proxy Profile
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="80" type="checkbox" id="_tab_80">
+                <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml"># Example deployment.toml entry
+[[transport.wss.proxy_profile]]
+target_hosts = ["secure-backend\\.corp"]
+proxy_host = "proxy.corp.internal"
+proxy_port = 3128
+proxy_username = "<proxy-username>"
+proxy_password = "<proxy-password>"
+bypass_hosts = ["localhost", "127\\.0\\.0\\.1"]
+
+[[transport.wss.proxy_profile]]
+target_hosts = ["*"]
+proxy_host = "proxy.corp.internal"
+proxy_port = 3128
+bypass_hosts = ["localhost"]
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[[transport.wss.proxy_profile]]</code>
+                            
+                            <p>
+                                Configures an HTTP CONNECT proxy profile for outbound secure WebSocket (wss://) connections from the gateway to the backend. The gateway opens a raw TCP tunnel through the proxy via HTTP CONNECT, then performs TLS with the backend inside that tunnel. Multiple profiles can be defined; evaluation rules are the same as for ws proxy profiles.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>target_hosts</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[&quot;example&#92;&#92;.com&quot;], [&quot;*&quot;]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A list of Java regular expression patterns matched against the backend hostname. Use [&quot;*&quot;] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: &quot;example&#92;&#92;.com&quot;.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_host</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Hostname or IP address of the HTTP CONNECT proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Port number of the HTTP CONNECT proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>bypass_hosts</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>[&quot;localhost&quot;, &quot;127&#92;&#92;.0&#92;&#92;.0&#92;&#92;.1&quot;]</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>proxy_password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Password for proxy authentication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Message Builders (non-blocking mode)
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="81" type="checkbox" id="_tab_81">
+                <label class="tab-selector" for="_tab_81"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_builders]
@@ -12220,8 +12594,8 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="80" type="checkbox" id="_tab_80">
-                <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
+            <input name="82" type="checkbox" id="_tab_82">
+                <label class="tab-selector" for="_tab_82"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_builders]
@@ -12265,8 +12639,8 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="81" type="checkbox" id="_tab_81">
-                <label class="tab-selector" for="_tab_81"><i class="icon fa fa-code"></i></label>
+            <input name="83" type="checkbox" id="_tab_83">
+                <label class="tab-selector" for="_tab_83"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_formatters]
@@ -12543,8 +12917,8 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="82" type="checkbox" id="_tab_82">
-                <label class="tab-selector" for="_tab_82"><i class="icon fa fa-code"></i></label>
+            <input name="84" type="checkbox" id="_tab_84">
+                <label class="tab-selector" for="_tab_84"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_formatters]
@@ -12590,8 +12964,8 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="83" type="checkbox" id="_tab_83">
-                <label class="tab-selector" for="_tab_83"><i class="icon fa fa-code"></i></label>
+            <input name="85" type="checkbox" id="_tab_85">
+                <label class="tab-selector" for="_tab_85"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_builders]]
@@ -12670,8 +13044,8 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="84" type="checkbox" id="_tab_84">
-                <label class="tab-selector" for="_tab_84"><i class="icon fa fa-code"></i></label>
+            <input name="86" type="checkbox" id="_tab_86">
+                <label class="tab-selector" for="_tab_86"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_builders]]
@@ -12708,8 +13082,8 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="85" type="checkbox" id="_tab_85">
-                <label class="tab-selector" for="_tab_85"><i class="icon fa fa-code"></i></label>
+            <input name="87" type="checkbox" id="_tab_87">
+                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_formatters]]
@@ -12788,8 +13162,8 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="86" type="checkbox" id="_tab_86">
-                <label class="tab-selector" for="_tab_86"><i class="icon fa fa-code"></i></label>
+            <input name="88" type="checkbox" id="_tab_88">
+                <label class="tab-selector" for="_tab_88"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_formatters]]
@@ -12826,8 +13200,8 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="87" type="checkbox" id="_tab_87">
-                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
+            <input name="89" type="checkbox" id="_tab_89">
+                <label class="tab-selector" for="_tab_89"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_formatter.options]
@@ -12907,8 +13281,8 @@ preserveMultipartPartContentTransferEncoding = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="88" type="checkbox" id="_tab_88">
-                <label class="tab-selector" for="_tab_88"><i class="icon fa fa-code"></i></label>
+            <input name="90" type="checkbox" id="_tab_90">
+                <label class="tab-selector" for="_tab_90"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[mediation]
@@ -13245,8 +13619,8 @@ inbound.max_threads = 100</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="89" type="checkbox" id="_tab_89">
-                <label class="tab-selector" for="_tab_89"><i class="icon fa fa-code"></i></label>
+            <input name="91" type="checkbox" id="_tab_91">
+                <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">enabled_global_handlers= ["custom_logger"]
@@ -13327,8 +13701,8 @@ custom_logger.class= "com.wso2.apim.log.handler.SynapseLogHandler"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="90" type="checkbox" id="_tab_90">
-                <label class="tab-selector" for="_tab_90"><i class="icon fa fa-code"></i></label>
+            <input name="92" type="checkbox" id="_tab_92">
+                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[governance]
@@ -13385,8 +13759,8 @@ life_cycle_checklist_items_enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="91" type="checkbox" id="_tab_91">
-                <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
+            <input name="93" type="checkbox" id="_tab_93">
+                <label class="tab-selector" for="_tab_93"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[qpid.heartbeat]
@@ -13461,8 +13835,8 @@ timeout_factor = 3.0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="92" type="checkbox" id="_tab_92">
-                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
+            <input name="94" type="checkbox" id="_tab_94">
+                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check]
@@ -13517,8 +13891,8 @@ enable = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="93" type="checkbox" id="_tab_93">
-                <label class="tab-selector" for="_tab_93"><i class="icon fa fa-code"></i></label>
+            <input name="95" type="checkbox" id="_tab_95">
+                <label class="tab-selector" for="_tab_95"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.super_tenant_health_checker]
@@ -13593,8 +13967,8 @@ order = "98"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="94" type="checkbox" id="_tab_94">
-                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
+            <input name="96" type="checkbox" id="_tab_96">
+                <label class="tab-selector" for="_tab_96"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.super_tenant_health_checker.properties]
@@ -13647,8 +14021,8 @@ monitored.user.stores = "primary,sec"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="95" type="checkbox" id="_tab_95">
-                <label class="tab-selector" for="_tab_95"><i class="icon fa fa-code"></i></label>
+            <input name="97" type="checkbox" id="_tab_97">
+                <label class="tab-selector" for="_tab_97"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.data_source_health_checker]
@@ -13723,8 +14097,8 @@ order = "97"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="96" type="checkbox" id="_tab_96">
-                <label class="tab-selector" for="_tab_96"><i class="icon fa fa-code"></i></label>
+            <input name="98" type="checkbox" id="_tab_98">
+                <label class="tab-selector" for="_tab_98"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.data_source_health_checker.properties]
@@ -13797,8 +14171,8 @@ monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"</code>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="97" type="checkbox" id="_tab_97">
-                <label class="tab-selector" for="_tab_97"><i class="icon fa fa-code"></i></label>
+            <input name="99" type="checkbox" id="_tab_99">
+                <label class="tab-selector" for="_tab_99"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[health_checker]
@@ -13894,8 +14268,8 @@ first_property = "value"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="98" type="checkbox" id="_tab_98">
-                <label class="tab-selector" for="_tab_98"><i class="icon fa fa-code"></i></label>
+            <input name="100" type="checkbox" id="_tab_100">
+                <label class="tab-selector" for="_tab_100"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth]
@@ -14073,8 +14447,8 @@ token_context_dialect_uri = "http://wso2.org/claims"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="99" type="checkbox" id="_tab_99">
-                <label class="tab-selector" for="_tab_99"><i class="icon fa fa-code"></i></label>
+            <input name="101" type="checkbox" id="_tab_101">
+                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_validation]
@@ -14168,8 +14542,8 @@ refresh_token_validity = "86400"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="100" type="checkbox" id="_tab_100">
-                <label class="tab-selector" for="_tab_100"><i class="icon fa fa-code"></i></label>
+            <input name="102" type="checkbox" id="_tab_102">
+                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_cleanup]
@@ -14246,8 +14620,8 @@ retain_access_tokens_for_auditing = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="101" type="checkbox" id="_tab_101">
-                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
+            <input name="103" type="checkbox" id="_tab_103">
+                <label class="tab-selector" for="_tab_103"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.oidc.extensions]
@@ -14475,8 +14849,8 @@ enable_unmapped_user_attributes = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="102" type="checkbox" id="_tab_102">
-                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
+            <input name="104" type="checkbox" id="_tab_104">
+                <label class="tab-selector" for="_tab_104"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.grant_type.authorization_code]
@@ -14964,8 +15338,8 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="103" type="checkbox" id="_tab_103">
-                <label class="tab-selector" for="_tab_103"><i class="icon fa fa-code"></i></label>
+            <input name="105" type="checkbox" id="_tab_105">
+                <label class="tab-selector" for="_tab_105"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[session_data.persistence]
@@ -15018,8 +15392,8 @@ persistence_pool_size = 0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="104" type="checkbox" id="_tab_104">
-                <label class="tab-selector" for="_tab_104"><i class="icon fa fa-code"></i></label>
+            <input name="106" type="checkbox" id="_tab_106">
+                <label class="tab-selector" for="_tab_106"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_generation]
@@ -15074,8 +15448,8 @@ retry_count_on_persistence_failures = 5</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="105" type="checkbox" id="_tab_105">
-                <label class="tab-selector" for="_tab_105"><i class="icon fa fa-code"></i></label>
+            <input name="107" type="checkbox" id="_tab_107">
+                <label class="tab-selector" for="_tab_107"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[user_store.properties]
@@ -15903,8 +16277,8 @@ UserCoreCacheTimeOut = 5 </code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="106" type="checkbox" id="_tab_106">
-                <label class="tab-selector" for="_tab_106"><i class="icon fa fa-code"></i></label>
+            <input name="108" type="checkbox" id="_tab_108">
+                <label class="tab-selector" for="_tab_108"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[custom_keystore.APIKeyKeyStore]
@@ -16039,8 +16413,8 @@ key_password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="107" type="checkbox" id="_tab_107">
-                <label class="tab-selector" for="_tab_107"><i class="icon fa fa-code"></i></label>
+            <input name="109" type="checkbox" id="_tab_109">
+                <label class="tab-selector" for="_tab_109"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[http_access_log]
@@ -16097,8 +16471,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="108" type="checkbox" id="_tab_108">
-                <label class="tab-selector" for="_tab_108"><i class="icon fa fa-code"></i></label>
+            <input name="110" type="checkbox" id="_tab_110">
+                <label class="tab-selector" for="_tab_110"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">#### Sample deployment.toml entry
@@ -16445,8 +16819,8 @@ mediaType = "application/vnd.wso2-service+xml"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="109" type="checkbox" id="_tab_109">
-                <label class="tab-selector" for="_tab_109"><i class="icon fa fa-code"></i></label>
+            <input name="111" type="checkbox" id="_tab_111">
+                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.transport_headers]
@@ -16586,8 +16960,8 @@ excludeResponseHeaders = ""
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="110" type="checkbox" id="_tab_110">
-                <label class="tab-selector" for="_tab_110"><i class="icon fa fa-code"></i></label>
+            <input name="112" type="checkbox" id="_tab_112">
+                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_handlers.custom_handler_name]
@@ -16663,8 +17037,8 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="111" type="checkbox" id="_tab_111">
-                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
+            <input name="113" type="checkbox" id="_tab_113">
+                <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.governance.scheduler]
@@ -16780,8 +17154,8 @@ task_cleanup_interval_minutes = 30
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="112" type="checkbox" id="_tab_112">
-                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
+            <input name="114" type="checkbox" id="_tab_114">
+                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mediator_config.oauth.trust_store]
@@ -16874,8 +17248,8 @@ password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="113" type="checkbox" id="_tab_113">
-                <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
+            <input name="115" type="checkbox" id="_tab_115">
+                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.receiver]
@@ -16927,8 +17301,8 @@ max_reconnection_interval = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="114" type="checkbox" id="_tab_114">
-                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
+            <input name="116" type="checkbox" id="_tab_116">
+                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.basic_authenticator]
@@ -17044,8 +17418,8 @@ max_wait_millis = 30000
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="115" type="checkbox" id="_tab_115">
-                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
+            <input name="117" type="checkbox" id="_tab_117">
+                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.synapse_artifact_generator.thread_pool]
@@ -17160,8 +17534,8 @@ queue_capacity = 50</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="116" type="checkbox" id="_tab_116">
-                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
+            <input name="118" type="checkbox" id="_tab_118">
+                <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[encryption]
@@ -17217,8 +17591,8 @@ key = "<generated-64-char-hex-key>"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="117" type="checkbox" id="_tab_117">
-                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
+            <input name="119" type="checkbox" id="_tab_119">
+                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[web_app.cookie_processor]
@@ -17276,8 +17650,8 @@ same_site_cookies = "lax"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="118" type="checkbox" id="_tab_118">
-                <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
+            <input name="120" type="checkbox" id="_tab_120">
+                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.aws_lambda]
@@ -17366,8 +17740,8 @@ retry_max_attempts = 2
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="119" type="checkbox" id="_tab_119">
-                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
+            <input name="121" type="checkbox" id="_tab_121">
+                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_properties]
@@ -17447,8 +17821,8 @@ retry_max_attempts = 2
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="120" type="checkbox" id="_tab_120">
-                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
+            <input name="122" type="checkbox" id="_tab_122">
+                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[dependency_properties]
@@ -17504,8 +17878,8 @@ retry_max_attempts = 2
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="121" type="checkbox" id="_tab_121">
-                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
+            <input name="123" type="checkbox" id="_tab_123">
+                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication.authenticator.oidc.parameters]
@@ -17563,8 +17937,8 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="122" type="checkbox" id="_tab_122">
-                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
+            <input name="124" type="checkbox" id="_tab_124">
+                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml"># API KEY CONFIGS
@@ -17741,8 +18115,8 @@ azure_umi_scope = "https://cognitiveservices.azure.com/.default"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="123" type="checkbox" id="_tab_123">
-                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
+            <input name="125" type="checkbox" id="_tab_125">
+                <label class="tab-selector" for="_tab_125"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.vector_db_provider]
@@ -17870,8 +18244,8 @@ ttl = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="124" type="checkbox" id="_tab_124">
-                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
+            <input name="126" type="checkbox" id="_tab_126">
+                <label class="tab-selector" for="_tab_126"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.azure_umi]
@@ -17906,6 +18280,203 @@ scope = "https://ai.azure.com/.default"
                                     </div>
                                     <div class="param-description">
                                         <p>The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://&lt;custom-scope&gt;.azure.com/.default.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## API-M AWS Lambda Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="127" type="checkbox" id="_tab_127">
+                <label class="tab-selector" for="_tab_127"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.aws_lambda.http_client]
+max_connections = 50
+connection_timeout = 10
+socket_timeout = 30
+connection_acquisition_timeout = 60
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.aws_lambda.http_client]</code>
+                            
+                            <p>
+                                 Configurations to tune the underlying HTTP connection pool settings used by each AWS Lambda client instance, to improve performance under high load.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_connections</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of concurrent HTTP connections allowed per AWS Lambda client instance. Increase this value if you expect high concurrent throughput to Lambda functions.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>connection_timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>2</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum time (in seconds) to wait when establishing a new TCP connection to AWS.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>socket_timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum time (in seconds) to wait for data to be transferred after a connection is established.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>connection_acquisition_timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum time (in seconds) to wait for a connection to become available from the pool if max_connections has been reached.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Authentication Policy
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="128" type="checkbox" id="_tab_128">
+                <label class="tab-selector" for="_tab_128"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication_policy]
+disable_account_disable_handler = false
+disable_account_confirmation_validation_handler = false</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication_policy]</code>
+                            
+                            <p>
+                                Defines the authentication policy settings for WSO2 API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_disable_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account disable handler during authentication.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_confirmation_validation_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account confirmation validation handler during authentication.</p>
                                     </div>
                                 </div>
                             </div>
